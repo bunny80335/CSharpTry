@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- OutputType Exe
+  編譯輸出檔案類型為 exe -->
+
+  <!-- TargetFramework
+  目標框架 net6.0 -->
+
+  <!-- ImplicitUsings enable/disable
+  載入預設的命名空間 -->
+
+  <!-- Nullable 可空 -->
+</Project>
+
+<!-- https://learn.microsoft.com/en-us/dotnet/core/project-sdk/overview#implicit-using-directives -->
+<!-- Project Sdk="Microsoft.NET.Sdk"
+Default namespaces：
+System
+System.Collections.Generic
+System.IO
+System.Linq
+System.Net.Http
+System.Threading
+System.Threading.Tasks -->

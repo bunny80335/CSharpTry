@@ -1,0 +1,15 @@
+J:\Project\CSharpTry\ConsoleTry\bin\Debug\net6.0\ConsoleTry.exe
+J:\Project\CSharpTry\ConsoleTry\bin\Debug\net6.0\ConsoleTry.deps.json
+J:\Project\CSharpTry\ConsoleTry\bin\Debug\net6.0\ConsoleTry.runtimeconfig.json
+J:\Project\CSharpTry\ConsoleTry\bin\Debug\net6.0\ConsoleTry.dll
+J:\Project\CSharpTry\ConsoleTry\bin\Debug\net6.0\ConsoleTry.pdb
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.csproj.AssemblyReference.cache
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.GeneratedMSBuildEditorConfig.editorconfig
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.AssemblyInfoInputs.cache
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.AssemblyInfo.cs
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.csproj.CoreCompileInputs.cache
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.dll
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\refint\ConsoleTry.dll
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.pdb
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ConsoleTry.genruntimeconfig.cache
+J:\Project\CSharpTry\ConsoleTry\obj\Debug\net6.0\ref\ConsoleTry.dll
