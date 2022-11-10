@@ -47,8 +47,10 @@ static void stringFormatting()
 
     // 搜尋字串
     string songLyrics = "You say goodbye, and I say hello";
-    var result = songLyrics.Contains("goodbye");
-    Console.WriteLine(result);
+    var result1 = songLyrics.Contains("goodbye");
+    var result2 = songLyrics.StartsWith("You");
+    var result3 = songLyrics.EndsWith("hello");
+    Console.WriteLine(result1);
     Console.WriteLine(songLyrics.Contains("greeting"));
     Console.WriteLine("---------------------------\n");
 }
@@ -97,6 +99,11 @@ static void digitalComputing()
     double radius = 2.50;
     double area = Math.PI * radius * radius;
     Console.WriteLine($"Circle Area: {area}");
+
+    // 硬幣翻轉正面或反面
+    Random coin = new Random();
+    int flip = coin.Next(0, 2);
+    Console.WriteLine((flip == 0) ? "heads" : "tails");
     Console.WriteLine("---------------------------\n");
 }
 digitalComputing();
@@ -108,9 +115,15 @@ static void branch()
     Console.WriteLine("---- branch ----");
     int a = 5;
     int b = 3;
-    bool judge1 = (a + b > 10);
-    bool judge2 = (a == b);
+
+    // branch ?:
+    int c = a > b ? 6 : 2;
+
+    bool judge1 = (a + b > c);
+    bool judge2 = (a == c);
     bool judge3 = (judge1 && judge2);
+
+    // branch if-elseif-else
     if (judge3)
     {
         Console.WriteLine("The answer is greater than 10.");
@@ -121,6 +134,28 @@ static void branch()
         Console.WriteLine("The answer is not greater than 10.");
         Console.WriteLine("Or the first number is not equal to the second.");
     }
+
+    // branch switch-case
+    int employeeLevel = 200;
+    string employeeName = "John Smith";
+    string title = "";
+    switch (employeeLevel)
+    {
+        case 100:
+            title = "Junior Associate";
+            break;
+        case 200:
+        case 300:
+            title = "Manager";
+            break;
+        case 400:
+            title = "Senior Manager";
+            break;
+        default:
+            title = "Associate";
+            break;
+    }
+    Console.WriteLine($"{employeeName}, {title}");
     Console.WriteLine("----------------\n");
 }
 branch();
@@ -130,6 +165,7 @@ branch();
 static void loop()
 {
     byte counter = 0;
+    // loop while
     while (counter < 10)
     {
         Console.WriteLine($"while loop. The counter is {counter}");
@@ -137,15 +173,31 @@ static void loop()
     }
 
     counter = 0;
+    // loop do-while
     do 
     {
         Console.WriteLine($"do while loop. The counter is {counter}");
         counter++;
     } while (counter < 10);
 
-    for (int index = 0; index < 10; index++)
+    string[] names = { "Alex", "Eddie", "David", "Michael" };
+    // loop for(初始設定式;條件;迭代器)
+    for (int index = 0; index < names.Length; index++)
     {
-        Console.WriteLine($"for loop. The counter is {index}");
+        if (index == 2)
+        {
+            names[index] = "Bunny";
+        }
+        Console.WriteLine($"My name is {names[index]}.");
+    }
+
+    // loop foreach
+    // 您無法重新指派 name 的值，因為其是 foreach 反覆運算內部實作的一部分。
+    foreach (var name in names)
+    {
+        // if (name == "Eddie")
+        //     name = "Error";
+        Console.WriteLine($"Hi, {name}");
     }
 }
 loop();
@@ -154,17 +206,48 @@ loop();
 /* 結合分支和迴圈
 static void combineBL()
 {
-    byte sum = 0;
-    for (byte i = 1; i < 21; i++)
+    for (int i = 1; i < 101; i++)
     {
-        if (i % 3 == 0)
-        {
-            sum += i;
-        }
+        Console.Write($"{i,3}:");
+        Console.Write(i % 3 == 0 ? "Fizz" : "");
+        Console.WriteLine(i % 5 == 0 ? "Buzz" : "");
     }
-    Console.WriteLine($"The sum is {sum}.");
 }
 combineBL();
+*/
+
+/* 小遊戲：英雄和怪物
+static void heroAndMonster()
+{
+    int heroHealth = 10;
+    int heroAttack;
+    int monsterHealth = 10;
+    int monsterAttack;
+    int injuried;
+    Random ran = new Random();
+    do
+    {
+        heroAttack = ran.Next(1, 10);
+        monsterAttack = ran.Next(1, 10);
+        if (heroAttack == monsterAttack)
+            Console.WriteLine("平手");
+        else if (heroAttack > monsterAttack)
+        {
+            injuried = heroAttack - monsterAttack;
+            monsterHealth -= injuried;
+            Console.WriteLine($"怪物受到傷害並失去 {injuried} 點生命值，現在擁有 {monsterHealth} 點生命值。");
+        }
+        else if (monsterAttack > heroAttack)
+        {
+            injuried = monsterAttack - heroAttack;
+            heroHealth -= injuried;
+            Console.WriteLine($"英雄受到傷害並失去 {injuried} 點生命值，現在擁有 {heroHealth} 點生命值。");
+        }
+    } while (heroHealth > 0 && monsterHealth > 0);
+
+    Console.WriteLine(heroHealth > monsterHealth ? "英雄獲勝！" : "怪物獲勝！");
+}
+heroAndMonster();
 */
 
 /* 數組、列表和集合
@@ -230,7 +313,7 @@ static void TypeInstance()
 TypeInstance();
 */
 
-/* LINQ */
+/* LINQ
 static void Linq()
 {
     // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
@@ -246,3 +329,5 @@ static void Linq()
     }
 }
 Linq();
+*/
+
