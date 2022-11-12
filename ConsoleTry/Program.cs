@@ -1,5 +1,24 @@
-﻿
-// See https://aka.ms/new-console-template for more information
+﻿// See https://aka.ms/new-console-template for more information
+
+// 資料　　：基本上是以一系列位元儲存在電腦記憶體中的值
+// 數值資料：若使用的是二進位 (或是基底 2) 數字系統，則可只使用 8 個位元來表示 256 種不同組合
+// 文字資料：使用 ASCII 值及其十進位對應項目查閱的 ASCII 資料表
+// 資料類型：是一種程式設計語言結構，定義 要為值保留多少記憶體
+// 　　　　：基本分類「實值型別」和「參考型別」
+// 實值 和 參考 型別間的 基本差異
+// 　　　　：與其在您應用程式執行時，於 記憶體 中暫時儲存的 位置 有關。
+// 　　　　：值的儲存 位置 會影響 .NET 執行階段管理值 壽命 的方式，包括其宣告(誕生)、指派和擷取(壽命)及完成(死亡)。
+// 　　　　：而這也會進而 影響 您在使用實值型別或參考型別時所使用的 語法。
+// 實值型別：整數、浮點數
+// 　　　　：實值型別變數會將其值 儲存在稱為「堆疊」的儲存體區域。
+// 　　　　：堆疊 是配置到目前正在 CPU 上執行程式碼的記憶體(也稱為堆疊框架或啟用框架)。
+// 　　　　：當堆疊框架 完成執行後，隨即 移除 堆疊中的值。
+// 參考型別：陣列、類別、字串
+// 　　　　：參考型別變數會將其值 儲存在稱為「堆積」的記憶體區域。
+// 　　　　：堆積 是同時在作業系統上執行的許多應用程式所 共用記憶體區域。
+// 　　　　：.NET 執行階段 會與作業系統通訊，判斷哪些記憶體位址可用，並要求可儲存值的位址。
+// 　　　　：.NET 執行階段 會儲存值，然後將 記憶體位址 傳回至 變數。
+// 　　　　：當程式碼使用變數時，.NET 執行階段便會順暢地查閱儲存在變數中的位址，並擷取儲存在該處的值。
 
 /* 字串格式化
 static void stringFormatting()
@@ -57,7 +76,7 @@ static void stringFormatting()
 stringFormatting();
 */
 
-/* 數值計算
+/* 數值計算*/
 static void digitalComputing()
 {
     Console.WriteLine("---- Digital Computing ----");
@@ -72,30 +91,45 @@ static void digitalComputing()
     Console.WriteLine($"{a} % {b} = {a % b}");
     Console.WriteLine($"{a} ^ {c} = {a ^ c}");
 
+    // 整數型別，帶正負號
+    // 帶正負號的實值型別會使用最左邊的一位元來儲存，0為正數、1為負數
+    Console.WriteLine("\nSigned integral types:");
+    Console.WriteLine($"{"sbyte",-8}: {sbyte.MinValue} to {sbyte.MaxValue}");
+    Console.WriteLine($"{"short",-8}: {short.MinValue} to {short.MaxValue}");
+    Console.WriteLine($"{"int",-8}: {int.MinValue} to {int.MaxValue}");
+    Console.WriteLine($"{"long",-8}: {long.MinValue} to {long.MaxValue}");
+
+    // 整數型別，不帶正負號
+    Console.WriteLine("\nUnsigned integral types:");
+    Console.WriteLine($"{"byte",-8}: {byte.MinValue} to {byte.MaxValue}");
+    Console.WriteLine($"{"ushort",-8}: {ushort.MinValue} to {ushort.MaxValue}");
+    Console.WriteLine($"{"ushort",-8}: {ushort.MinValue} to {ushort.MaxValue}");
+    Console.WriteLine($"{"ulong",-8}: {ulong.MinValue} to {ulong.MaxValue}");
+
+    // 浮動型別，帶正負號
+    // 浮點數值在數字成長到相當龐大時，有時候可使用「E 標記法」來表示。
+    // 5E+2 這類的值表示 500，因為其相當於 5 * 10^2 或 5 * 10 * 10
+    Console.WriteLine("\nFloating point types:");
+    Console.WriteLine($"{"float",-8}: {float.MinValue} to {float.MaxValue}");
+    Console.WriteLine($"{"double",-8}: {double.MinValue} to {double.MaxValue}");
+    Console.WriteLine($"{"decimal",-8}: {decimal.MinValue} to {decimal.MaxValue}");
+
+    // 溢位
     int intMax = int.MaxValue;
     int intOverflow = intMax + 3;
-    Console.WriteLine($"short max: {short.MaxValue}");
-    Console.WriteLine($"short min: {short.MinValue}");
-    Console.WriteLine($"int max: {int.MaxValue}");
-    Console.WriteLine($"int min: {int.MinValue}");
-    Console.WriteLine($"int overflow: {intOverflow}");
-    Console.WriteLine($"long max: {long.MaxValue}");
-    Console.WriteLine($"long min: {long.MinValue}");
-    Console.WriteLine($"decimal max: {decimal.MaxValue}");
-    Console.WriteLine($"decimal min: {decimal.MinValue}");
-    Console.WriteLine($"float max: {float.MinValue}");
-    Console.WriteLine($"float min: {float.MinValue}");
-    Console.WriteLine($"double max: {double.MaxValue}");
-    Console.WriteLine($"double min: {double.MinValue}");
+    Console.WriteLine($"\nint Max+3:{intOverflow}\n");
 
+    // 編譯器和執行階段處理 decimal 的方式，與處理 float 或 double 的方式有基本差異，
+    // 尤其是在判斷數學運算所需的正確性程度時。
     double d1 = 1;
     double d2 = 3;
-    Console.WriteLine($"{d1 / d2}");
+    Console.WriteLine($"{"double",-8}: {d1} / {d2} = {d1 / d2}");
 
     decimal d3 = 1M;
     decimal d4 = 3M;
-    Console.WriteLine($"{d3 / d4}");
+    Console.WriteLine($"{"decimal",-8}: {d3} / {d4} = {d3 / d4}");
 
+    // 圓面積
     double radius = 2.50;
     double area = Math.PI * radius * radius;
     Console.WriteLine($"Circle Area: {area}");
@@ -107,7 +141,7 @@ static void digitalComputing()
     Console.WriteLine("---------------------------\n");
 }
 digitalComputing();
-*/
+
 
 /* 分支
 static void branch()
